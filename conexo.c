@@ -23,7 +23,6 @@ GRAFO CONEXO:
 
 void inicializarGrafo(int grafo[][tam]);
 void imprimirGrafo(int grafo[][tam]);
-int grau(int grafo[][tam], int no);
 void buscaProf(int grafo[][tam], int vIni);
 void desmarcarVertices(int grafo[][tam]);
 int conexo(int grafo[][tam]);
@@ -42,7 +41,7 @@ int main()
 	else
 		printf("\nGrafo nao conexo!\n");
 
-	//system("pause");
+	system("pause");
 	return 0;
 }
 
@@ -74,17 +73,6 @@ void imprimirGrafo(int grafo[][tam])
 	}
 }
 
-int grau(int grafo[][tam], int no)
-{
-	int i, _grau = 0;
-	for (i = 0; i < tam; i++)
-	{
-		if (grafo[no][i] == 1)
-			_grau++;
-	}
-
-	return _grau;
-}
 
 void buscaProf(int grafo[][tam], int vIni)
 {
@@ -94,25 +82,9 @@ void buscaProf(int grafo[][tam], int vIni)
 		if(grafo[vIni][i] == 1)
 			if (grafo[vIni][i] != 2)
 			{
-				//imprimirGrafo(grafo);
 				grafo[vIni][i] += 1;
 				buscaProf(grafo, i);
 			}
-	}
-}
-
-void desmarcarVertices(int grafo[][tam])
-{
-	int i, j;
-	for (i = 0; i < tam; i++)
-	{
-		for(j = 0; j < tam; j++)
-		{
-			if (grafo[i][j] == 2)
-			{
-				grafo[i][j]--;
-			}
-		}
 	}
 }
 
@@ -128,6 +100,6 @@ int conexo(int grafo[][tam])
 				return 0;
 		}
 	}
-	desmarcarVertices(grafo);
+	
 	return 1;
 }
