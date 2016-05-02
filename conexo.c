@@ -1,7 +1,6 @@
-#include <cstdlib>
-#include <cstdio>
+#include <stdlib.h>
+#include <stdio.h>
 
-//Numero de vertices
 #define tam (6)
 
 /*
@@ -29,6 +28,7 @@ void buscaProf(int grafo[][tam], int vIni);
 void desmarcarVertices(int grafo[][tam]);
 int conexo(int grafo[][tam]);
 
+//Main
 int main()
 {
 	int grafo[tam][tam];
@@ -42,14 +42,14 @@ int main()
 	else
 		printf("\nGrafo nao conexo!\n");
 
-	//imprimirGrafo(grafo);
-
-	system("pause");
+	//system("pause");
 	return 0;
 }
 
 void inicializarGrafo(int grafo[][tam])
 {
+    printf("Informe a matriz de adjacencia do grafo:\n");
+
 	int i, j;
 	for (i = 0; i < tam; i++)
 	{
